@@ -1,0 +1,8 @@
+*.zip
+*.exe
+*.token
+*.secret
+*.key
+.env
+.env.*
+
