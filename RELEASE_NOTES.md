@@ -1,41 +1,36 @@
-# My5 OBS Dock v1.3.5 - Dock-First Managed Sign-In
+# My5 OBS Dock v4.0.0 — Signal One
 
-## Streamer setup is now three steps
+Signal One turns My5 into a dock-first stream operating layer while keeping today’s behavior compatible and future automation safely feature-flagged.
 
-1. Install or repair My5 OBS Dock.
-2. Open the dock and choose Channels.
-3. Click Connect, sign in on the platform's official page, and approve.
+## What changed
 
-The setup app now contains only Welcome, OBS Setup, and Guide. The old Platforms tab, Client ID fields, client-secret fields, callback instructions, developer-portal buttons, webhook setup, and Save Platform Setup workflow were removed.
+- The full Player is back inside the My5 OBS dock.
+- The old standalone My5 Player app and desktop shortcut are removed during Install / Repair.
+- A clear output switch selects **Stream / OBS** or **Personal / Desktop**. Web Locks plus the server output mode ensure only one audio owner is active.
+- The new Stream OS core provides a normalized event bus, bounded event history, structured logs, explicit stream states, platform adapters, module health, feature flags, and a safe simulation endpoint.
+- My5tructure is connected through a local read-only intelligence adapter. Only compact style metadata is used; footage, transcripts, secrets, and private project data never enter My5.
+- Playback now distinguishes buffering from true blocking, gives each provider a realistic startup window, nudges stalled embeds before rescue, and avoids premature source switching.
+- Existing Player features remain: mixed-source search, viewer requests, queue cleanup, approval flow, Auto DJ, transport controls, full-track completion, and crossfade preparation.
+- The installer, setup guide, updater, package verifier, and legacy cleanup now match the dock-only Player architecture.
 
-## Managed platform login
+## Verification
 
-- Twitch authorization starts from the local service and stores renewable tokens.
-- YouTube authorization now starts from the local service; the dock no longer reads or displays the bundled client ID.
-- Kick authorization, token exchange, renewal, webhook subscription, and relay continue through the hosted My5 backend.
-- TikTok asks for the exact live @username only when Connect is clicked.
-- Legacy local app-ID and Kick-secret overrides are removed during Install / Repair so every tester uses the supported managed configuration.
-- The user-facing config endpoint returns provider readiness only; it does not return platform Client IDs or secret status.
+- Clean-package checks: **110/110 passed**
+- Activity stress: **240/240 passed**
+- Real browser playback: YouTube, SoundCloud, Audius, pause/resume, skip, completion, next approval, and output handoff passed
+- Managed authorization-start checks passed for Twitch, YouTube, and Kick
+- TikTok current-chat, Unicode/emoji, stale-session reset, and replay checks passed
+- No legacy My5 Player executable, launcher, or desktop shortcut remains in the package
 
-## Request link and OBS
+## Assets
 
-- AUXDROP room creation now happens automatically through the managed backend.
-- Requests includes a Share Request Link button that creates and copies the viewer link.
-- Opening the dock from Setup starts the service and waits for it before loading, preventing the old page-not-loaded screen.
-- The OBS source URLs remain under OBS Setup.
+- `My5iveSetup.exe` — one-file Windows x64 setup
+- `My5ive-Windows.zip` — portable release package
+- `My5ive-update.zip` — SHA-256-verified automatic update payload
+- matching `.sha256.txt` files
 
-## Verified
+Setup SHA-256: `BA2337DC4633464DCE70F232CD905C1E70A2A7A62519A42E6268EC67F4F10078`
 
-- Clean-package suite: 80/80 passed.
-- Twitch, YouTube, and Kick managed authorization starts: passed.
-- No Platforms tab and no exposed user-facing platform IDs: passed.
-- Automatic request-room setup: passed.
-- OBS dock, chat overlay, request player, viewer endpoints, playback controls, search, and Auto DJ checks: passed.
-- Private credential filename scan: passed.
+ZIP SHA-256: `F73831F20A79AD14A2E6D4CB632708F4BFE1C638E759481C975E426561AA8276`
 
-## Download
-
-My5-OBS-Dock-Windows-v1.3.5.zip
-
-SHA-256: E37B0210684FD816D0559072545509921ED117CCBE373E188124A651148FE936
-Size: 103828903 bytes
+Update SHA-256: `23B352744544E2866800F2B83A25DEFE2A30D3C367B08D99EF3B545F960232F8`

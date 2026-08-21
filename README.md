@@ -1,54 +1,54 @@
 # My5 OBS Dock
 
-My5 OBS Dock is a Windows stream command center for OBS. It combines multi-platform chat, song requests, viewer counts, moderation shortcuts, optional chat voice, and matching OBS browser sources in one dock.
+My5 OBS Dock is a Windows stream command center for OBS. Signal One 4.0 combines multi-platform chat, current-stream activity, song search and requests, Auto DJ, viewer signals, moderation shortcuts, optional chat voice, and matching OBS browser sources.
 
 ## Download
 
-Open the repository's **Releases** page and download:
+Open **Releases** and download `My5ive-Windows.zip`, or download `My5iveSetup.exe` for the one-file installer.
 
-`My5-OBS-Dock-Windows-v1.3.5.zip`
+## Setup
 
-## Three-step setup
+1. Run `My5iveSetup.exe` and choose **Install / Repair My5 OBS Dock**.
+2. Choose **Open My5 OBS Dock**.
+3. In **Channels**, connect each platform on its official sign-in page.
+4. Add the dock and browser-source URLs shown under **OBS Setup**.
 
-1. Extract the ZIP and run `My5iveSetup.exe`.
-2. Select **Install / Repair My5 OBS Dock**, then **Open My5 OBS Dock**.
-3. Open **Channels**, select **Connect**, sign in on each platform's official page, and approve.
+There is no Platforms tab and streamers do not paste Client IDs, client secrets, callback URLs, or webhooks. Platform tokens stay protected under each streamer's Windows account.
 
-That is the entire platform setup. There is no Platforms tab and no developer-app configuration for streamers. Users never paste Client IDs, client secrets, callback URLs, or webhooks.
+### Upgrading a very old copy
 
-The shared public app identity is bundled, private service secrets remain on the hosted My5 backend, and every streamer's platform tokens stay protected under their own Windows account.
+Builds that already contain the GitHub updater will show the update inside the dock. Builds from before the updater existed cannot receive a popup because they have no update-checking code; run the 4.0 setup once. Install / Repair adopts the existing My5 folder and settings, and every later release can update from inside My5.
 
-## Platform sign-in
+## Signal One 4.0
 
-- **Twitch:** Confirm the short approval code. The login renews automatically.
-- **YouTube:** Choose the Google account that owns or manages the live channel and approve the managed Production app. Google may display an unverified-app warning until public verification finishes.
-- **Kick:** Sign in and approve. The hosted backend handles private token exchange, renewal, webhook subscription, and chat relay.
-- **TikTok LIVE:** Select Connect and enter the exact live `@username`.
+- Restored Player tab inside the OBS dock; the retired standalone My5 Player is removed.
+- Explicit **Stream / OBS** and **Personal / Desktop** output modes with one playback owner, preventing doubled or echoed audio.
+- Central Stream OS event bus, honest platform adapters and health, explicit stream lifecycle, feature flags, structured logs, and simulation hooks.
+- Local, read-only My5tructure intelligence adapter. It imports only compact editing-style signals and never imports footage, transcripts, credentials, or private project content.
+- Faster playback recovery with provider-aware buffering windows, queue cleanup, full-track completion checks, Auto DJ, and dual-deck crossfade support.
+- Current-session chat, activity deduplication, Unicode and platform emoji rendering, exact viewer endpoints, and TikTok activity signals.
+- Automatic GitHub update checks with SHA-256 verification. Existing settings, tokens, and request-room keys are preserved.
 
-Background watchers start with My5 OBS Dock and attach when an active stream appears. If a platform revokes a login, only that platform asks for reauthorization.
+## Player audio routing
 
-## Viewer song-request link
-
-Open **Requests** and select **Share Request Link**. My5 OBS Dock automatically creates the private AUXDROP room and copies the simple public link.
-
-## OBS sources
-
-The setup app provides copy buttons for:
-
-- My5 OBS Dock
-- Chat overlay
-- Request player and viewer counts
-
-Use exactly one Request Player browser source and enable **Control audio via OBS** to avoid duplicate audio.
+- Choose **Stream / OBS** when the audience should hear the Request Player browser source through the OBS mixer.
+- Choose **Personal / Desktop** when only you should hear playback from the dock.
+- Add exactly one Request Player browser source and enable **Control audio via OBS**.
 
 ## Verified build
 
-- Clean-package checks: **80/80 passed**
-- Twitch, YouTube, and Kick managed authorization starts: passed
-- No Platforms tab and no user-facing platform IDs: passed
-- Automatic request-room setup: passed
-- OBS dock, overlays, request player, playback controls, search, Auto DJ, viewer endpoints, and credential scans: passed
+- Clean package: **110/110 passed**
+- Activity burst stress: **240/240 passed**, with bounded chat history
+- Real browser playback: YouTube, SoundCloud, and Audius sustained playback passed
+- Play/pause, skip, queue removal, next approval, Auto DJ, and output-owner handoff passed
+- Twitch, YouTube, and Kick authorization starts passed
+- TikTok current-chat, emoji, stale-session reset, and replay checks passed
+- Stream OS, My5tructure adapter, simulation, health, update integrity, and legacy-player removal passed
 
-SHA-256:
+`My5ive-Windows.zip` SHA-256:
 
-`E37B0210684FD816D0559072545509921ED117CCBE373E188124A651148FE936`
+`F73831F20A79AD14A2E6D4CB632708F4BFE1C638E759481C975E426561AA8276`
+
+`My5iveSetup.exe` SHA-256:
+
+`BA2337DC4633464DCE70F232CD905C1E70A2A7A62519A42E6268EC67F4F10078`
